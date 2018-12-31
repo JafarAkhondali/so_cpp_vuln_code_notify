@@ -1,0 +1,39 @@
+{
+  "browser_action": {
+    "default_icon": "icons/icon_128.png"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "scripts/jquery-2.2.4.js",
+        "contentScripts/content.js"
+      ],
+      "css": [
+        "styles/so_vuln.css",
+        "styles/animate.css"
+      ],
+      "matches": [
+        "https://stackoverflow.com/*"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "description": "Get notify when you are visiting an stackoverflow.com page that has vulnerable code snippet!",
+  "homepage_url": "https://github.com/JafarAkhondali/so_vuln_cpp",
+  "icons": {
+    "32": "icons/icon_32.png",
+    "48": "icons/icon_48.png",
+    "128": "icons/icon_128.png"
+  },
+
+  "manifest_version": 2,
+  "minimum_chrome_version": "19.0",
+
+  "name": "Stackoverflow.com C++ Vulnerable code snippets",
+
+  "short_name": "SoVuln",
+  "permissions": [
+    "storage"
+  ],
+  "version": "0.1"
+}
