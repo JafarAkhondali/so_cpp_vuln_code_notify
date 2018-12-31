@@ -43,15 +43,11 @@ if (URL.startsWith('https://stackoverflow.com/questions/')) {
     //Inside each QuestionId is an array of answers with AnswerId as key and Warning message as value
 
     const QUESTION_IDS_WITH_VULN_ANSWERS = {
-        // In question Id e
-        3209790: [
+        3209790:
             {
-                // Ina ham ye array hastan az answer Id ha, key mishe AnswerId  va value mishe Messsagi ke mikhaym be user neshun bedim
                 // 3227225: "Message about this vulnerability ... <br> In html format! <br> <a href='http://google.com'> Link </a>",
                 31169390: "Message about this vulnerability ... <br> In html format! <br> <a href='http://google.com'> Link </a>",
-
             }
-        ]
     };
 
 
@@ -59,15 +55,10 @@ if (URL.startsWith('https://stackoverflow.com/questions/')) {
     if (QUESTION_ID in QUESTION_IDS_WITH_VULN_ANSWERS) {
 
         //For each answer vulnerable answer in our results object
-        QUESTION_IDS_WITH_VULN_ANSWERS[QUESTION_ID].map((answerObjectWithMessage) => {
-
-
-            Object.keys(answerObjectWithMessage).map((answerIdToHide)=>{
+        Object.keys(QUESTION_IDS_WITH_VULN_ANSWERS[QUESTION_ID]).map((answerIdToHide) => {
                 //Hide the answer
-                const warningMessage = answerObjectWithMessage[answerIdToHide];
+                const warningMessage = QUESTION_IDS_WITH_VULN_ANSWERS[QUESTION_ID][answerIdToHide];
                 hideAnswer(answerIdToHide, warningMessage);
-
-            });
         });
     }
 }
